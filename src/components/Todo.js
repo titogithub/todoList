@@ -5,8 +5,9 @@ import { toggleTodo } from "../ducks/todoList";
 
 const Todo = ({ todo }) => {
   const dispatch = useDispatch();
+  const handleToggleTodo  = () => { console.log('todo: ', todo); return dispatch(toggleTodo(todo.id)) };
   return (
-    <li className="todo-item" onClick={() => dispatch(toggleTodo(todo.id))}>
+    <li className="todo-item" onClick={handleToggleTodo}>
       {todo && todo.completed ? "👌" : "👋"}{" "}
       <span
         className={cx(

@@ -15,12 +15,12 @@ export default function (state = defaultState, action) {
     }
     case TOGGLE_TODO: {
       const { id } = action.payload;
-      console.log('reducer state: ', state);
       return state.map((v) => { 
-              if (v.id === id) {
-                v.completed = !v.completed;
+              const value = {...v};
+              if (value.id === id) {
+                value.completed = !value.completed;
               }
-              return v;
+              return value;
             })
     }
     case GET_TODOS: {
